@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    private InputHandler inputHandlerScript;
+    public InputHandler inputHandlerScript;
     [SerializeField] private Animator animator;
     [SerializeField] private Vector3 mouseOffset;
+    [SerializeField] private Vector3 playerDirect;
     [SerializeField] private Vector3 targetPos;
     [SerializeField] private Vector3 goalDirection;       
-    [SerializeField] private Camera cam;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private Vector3 lookRot;
+    [SerializeField] private Vector3 debugVector;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
+        inputHandlerScript = GetComponent<InputHandler>();
     }
 
     // Update is called once per frame
@@ -25,15 +29,69 @@ public class PlayerAnimator : MonoBehaviour
             targetPos.y = transform.position.y;
         }
 
-        Vector3 lookRot = targetPos - transform.position;
+      
+
+       var TemporaryTransformTest = new Vector3 (transform.position.x, transform.position.y, transform.position.z).normalized;
+        playerDirect = new Vector3(inputHandlerScript.InputVector.x, 0, inputHandlerScript.InputVector.y).normalized;
+       // playerDirect = new Vector3(TemporaryTransformTest.x+inputHandlerScript.InputVector.x, 0, TemporaryTransformTest.z + inputHandlerScript.InputVector.y);
+
+
+        lookRot = targetPos - transform.position;
         //lookRot.y = 0;
+
 
         transform.rotation = Quaternion.LookRotation(lookRot, Vector3.up);
 
 
+
         // Walk animation direction
         mouseOffset = (new Vector2(targetPos.x, targetPos.z) - new Vector2(transform.position.x, transform.position.z)).normalized;
-        animator.SetFloat("x", mouseOffset.x);
-        animator.SetFloat("y", mouseOffset.y);
+        if (Mathf.Abs(mouseOffset.x) < Mathf.Abs(mouseOffset.y))
+        {
+            animator.SetFloat("y", mouseOffset.x * playerDirect.x);
+            animator.SetFloat("x", mouseOffset.y * playerDirect.z);
+        }
+        else
+        {
+            animator.SetFloat("x", mouseOffset.x * playerDirect.x);
+            animator.SetFloat("y", mouseOffset.y * playerDirect.z);
+        }
+        //GizmoDebug
+        //OnDrawGizmosSelected();
+
+
+        /*if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            debugVector = lookRot;
+            Gizmos.color = Color.yellow;
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse2))
+        {
+            debugVector = playerDirect;
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            debugVector = mouseOffset;
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            debugVector = lookRot;
+        }*/
+
     }
+    void OnDrawGizmosSelected()
+    {
+        // Draws a 5 unit long red line in front of the object
+        Gizmos.color = Color.red;
+        //mouse vector
+        //debugVector = debugVector.normalized * 5f;
+        //Debug.Log(debugVector);
+        //Gizmos.DrawRay(transform.position, debugVector);
+        Gizmos.DrawRay(transform.position, lookRot);
+        Gizmos.color = Color.green;
+        //Gizmos.DrawLine(transform.position, mouseOffset);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, playerDirect * 5f);
+    }
+
 }

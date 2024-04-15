@@ -35,7 +35,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 10468ac683d636a4b816082381b51c3d, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: bf18f8b03e97a8940804dcc87a2be0e4, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -43,34 +43,34 @@ BlendTree:
     m_DirectBlendParameter: isWalking
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: c4b1b5f60487be641974593ef17e1177, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 42942fe5e7ff3d943bda4a49073ade34, type: 3}
     m_Threshold: 1
-    m_Position: {x: 0, y: 1}
-    m_TimeScale: 1
+    m_Position: {x: 0, y: 0.5}
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: isWalking
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: b2d9ccf78ea82574d90e3613acd2dca0, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 6550040201f422e47ae34f28faf0766c, type: 3}
     m_Threshold: 2
-    m_Position: {x: 0, y: -1}
-    m_TimeScale: 1
+    m_Position: {x: 0, y: -0.5}
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: isWalking
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: e92827c764b8a604f965531e947f25d1, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 534baf0c88e4e2a419d7fa8dca8cd839, type: 3}
     m_Threshold: 3
-    m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
+    m_Position: {x: -0.5, y: 0}
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: isWalking
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 8ee366d20bf86d44a82ddbf3f314e523, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 1a77697e6e7076e4d89f03926ca9e264, type: 3}
     m_Threshold: 4
-    m_Position: {x: 1, y: 0}
-    m_TimeScale: 1
+    m_Position: {x: 0.5, y: 0}
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: isWalking
     m_Mirror: 0
@@ -95,19 +95,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: x
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: y
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -145,7 +145,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 2921949880536902077}
+  m_DefaultState: {fileID: -6631087490078212334}
 --- !u!1102 &2921949880536902077
 AnimatorState:
   serializedVersion: 6
