@@ -14,6 +14,9 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] private Vector3 lookRot;
     [SerializeField] private Vector3 debugVector;
     [SerializeField] private Vector3 testPlayerDirect;
+    [SerializeField] private Vector3 wessonX;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,25 +42,29 @@ public class PlayerAnimator : MonoBehaviour
 
 
         lookRot = targetPos - transform.position;
+        lookRot.Normalize();
         //lookRot.y = 0;
 
 
         transform.rotation = Quaternion.LookRotation(lookRot, Vector3.up);
-
+        
 
 
         // Walk animation direction
         mouseOffset = (new Vector2(targetPos.x, targetPos.z) - new Vector2(transform.position.x, transform.position.z)).normalized;
-        if (Mathf.Abs(mouseOffset.x) < Mathf.Abs(mouseOffset.y))
-        {
-            animator.SetFloat("y", mouseOffset.x * playerDirect.x);
-            animator.SetFloat("x", mouseOffset.y * playerDirect.z);
-        }
-        else
-        {
-            animator.SetFloat("x", mouseOffset.x * playerDirect.x);
-            animator.SetFloat("y", mouseOffset.y * playerDirect.z);
-        }
+        wessonX = new Vector3(testPlayerDirect.x - lookRot.x, 0, testPlayerDirect.z - lookRot.y).normalized;
+        animator.SetFloat("x", wessonX.x);
+        animator.SetFloat("y", wessonX.z);
+        /* if (Mathf.Abs(mouseOffset.x) < Mathf.Abs(mouseOffset.y))
+         {
+             animator.SetFloat("y", mouseOffset.x * playerDirect.x);
+             animator.SetFloat("x", mouseOffset.y * playerDirect.z);
+         }
+         else
+         {
+             animator.SetFloat("x", mouseOffset.x * playerDirect.x);
+             animator.SetFloat("y", mouseOffset.y * playerDirect.z);
+         }*/
         //GizmoDebug
         //OnDrawGizmosSelected();
 
@@ -93,7 +100,7 @@ public class PlayerAnimator : MonoBehaviour
         Gizmos.color = Color.green;
         //Gizmos.DrawLine(transform.position, mouseOffset);
         Gizmos.color = Color.blue;
-        Gizmos.DrawRay(transform.position, playerDirect * 5f);
+        Gizmos.DrawRay(transform.position, wessonX);
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, testPlayerDirect * 5f);
     }
