@@ -13,6 +13,7 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Vector3 lookRot;
     [SerializeField] private Vector3 debugVector;
+    [SerializeField] private Vector3 testPlayerDirect;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +30,11 @@ public class PlayerAnimator : MonoBehaviour
             targetPos.y = transform.position.y;
         }
 
-      
+       testPlayerDirect = new Vector3(0,0,0);
 
        var TemporaryTransformTest = new Vector3 (transform.position.x, transform.position.y, transform.position.z).normalized;
         playerDirect = new Vector3(inputHandlerScript.InputVector.x, 0, inputHandlerScript.InputVector.y).normalized;
+        testPlayerDirect = Quaternion.Euler(-90, 45, 0) * playerDirect;
        // playerDirect = new Vector3(TemporaryTransformTest.x+inputHandlerScript.InputVector.x, 0, TemporaryTransformTest.z + inputHandlerScript.InputVector.y);
 
 
@@ -92,6 +94,8 @@ public class PlayerAnimator : MonoBehaviour
         //Gizmos.DrawLine(transform.position, mouseOffset);
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, playerDirect * 5f);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position, testPlayerDirect * 5f);
     }
 
 }
