@@ -32,11 +32,11 @@ public class groundPoundAttack : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) // Change to any desired input key
         {
-            Shoot2();
+            //Shoot2();
         }
         if (Input.GetKeyDown(KeyCode.E)) // Change to any desired input key
         {
-            Shoot3();
+            //Shoot3();
         }
     }
 
@@ -53,3 +53,4 @@ public class groundPoundAttack : MonoBehaviour
             Debug.LogError("Rigidbody not found on projectile prefab.");
         }
     }
+}
