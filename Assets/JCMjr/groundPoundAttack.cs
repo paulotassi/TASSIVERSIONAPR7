@@ -26,21 +26,21 @@ public class groundPoundAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space)) // Change to any desired input key
             {
-                Shoot();
+                //Shoot();
                 delay = seconds;
             }
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) // Change to any desired input key
         {
-            Shoot2();
+            //Shoot2();
         }
         if (Input.GetKeyDown(KeyCode.E)) // Change to any desired input key
         {
-            Shoot3();
+            //Shoot3();
         }
     }
 
-    void Shoot()
+    /*void Shoot()
     {
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
@@ -51,5 +51,5 @@ public class groundPoundAttack : MonoBehaviour
         else
         {
             Debug.LogError("Rigidbody not found on projectile prefab.");
-        }
+        }*/
     }
