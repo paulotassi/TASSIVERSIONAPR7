@@ -18,21 +18,21 @@ public class groundPoundAttack : MonoBehaviour
         }
         if (delay <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.Space)) // Change to any desired input key
+            if (Input.GetKeyDown(KeyCode.E)) // Change to any desired input key
             {
-                Shoot();
+                GroundSlam();
                 delay = seconds;
             }
         }
     }
 
-    void Shoot()
+    void GroundSlam ()
     {
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.velocity = firePoint.right * projectileSpeed; // Assuming the projectile moves along the object's forward direction
+            rb.velocity = firePoint.forward * projectileSpeed; // Assuming the projectile moves along the object's forward direction
         }
         else
         {
