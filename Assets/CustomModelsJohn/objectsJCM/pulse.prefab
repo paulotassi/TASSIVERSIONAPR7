@@ -1056,7 +1056,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -4924,7 +4924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc664f492d607f40adc31f3780c492f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfDestructTime: 1.5
+  selfDestructTime: 2
 --- !u!114 &671356754135947900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4937,7 +4937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1b7f4de5961c242b7280b000fc0cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleFactor2: 10
+  scaleFactor2: 12
 --- !u!114 &3599056562766842946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4950,7 +4950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f645fc9710dc4843beee5fa0475112d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 1
+  pushForce: 25
 --- !u!54 &3987349490065713087
 Rigidbody:
   m_ObjectHideFlags: 0

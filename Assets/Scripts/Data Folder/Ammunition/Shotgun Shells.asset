@@ -15,5 +15,5 @@ MonoBehaviour:
   damage: 5
   rounds: 8
   spread: 5
-  recoil: 1
+  recoil: 2.5
   weaponSFX: {fileID: 8300000, guid: fecc3e7a0166a104cb810435f6fdf37b, type: 3}

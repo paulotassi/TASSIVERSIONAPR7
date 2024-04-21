@@ -33,8 +33,9 @@ public class PlayerWeapon : MonoBehaviour
     {
         aClip = ammunition.weaponSound;
         asource.resource = aClip;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.Alpha1))
         {
+            
             ammunition = ammos[0]; //rifle shell
             spreadValue = ammunition.sprd;
 

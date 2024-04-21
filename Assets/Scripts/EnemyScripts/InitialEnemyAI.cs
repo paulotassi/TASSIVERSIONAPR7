@@ -87,7 +87,7 @@ public class InitialEnemyAI : MonoBehaviour
             //Attack Code Here Shooting or anything else
             enemyAnimator.SetTrigger("isAttacking");
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward *15f, ForceMode.Impulse);
+            rb.AddForce(transform.forward *10f, ForceMode.Impulse);
             rb.AddForce(transform.up * 2f, ForceMode.Impulse);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
