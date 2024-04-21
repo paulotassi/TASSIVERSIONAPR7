@@ -8,6 +8,7 @@ public class InitialEnemyAI : MonoBehaviour
 
     public NavMeshAgent agent;
     public Transform player;
+    public Animator enemyAnimator;
     public LayerMask whatIsGround, whatIsPlayer, whatIsWall;
 
 
@@ -20,6 +21,7 @@ public class InitialEnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    
 
     //States
     public float sightRange, attackRange;
@@ -30,6 +32,8 @@ public class InitialEnemyAI : MonoBehaviour
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         walkPointSet = false;
+        enemyAnimator = GetComponent<Animator>();
+        
     }
 
     private void Patrolling()
@@ -81,6 +85,7 @@ public class InitialEnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             //Attack Code Here Shooting or anything else
+            enemyAnimator.SetTrigger("isAttacking");
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward *15f, ForceMode.Impulse);
             rb.AddForce(transform.up * 2f, ForceMode.Impulse);
