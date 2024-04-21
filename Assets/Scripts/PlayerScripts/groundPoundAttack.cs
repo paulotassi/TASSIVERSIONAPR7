@@ -7,6 +7,7 @@ public class groundPoundAttack : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
     public float projectileSpeed = 10f;
+
     public float seconds = 5;
     public float delay;
 
@@ -20,13 +21,14 @@ public class groundPoundAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E)) // Change to any desired input key
             {
-                GroundSlam();
+                groundPound();
                 delay = seconds;
             }
         }
+
     }
 
-    void GroundSlam ()
+    void groundPound()
     {
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();

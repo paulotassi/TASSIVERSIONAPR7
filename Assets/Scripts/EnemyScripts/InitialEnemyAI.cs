@@ -8,11 +8,12 @@ public class InitialEnemyAI : MonoBehaviour
 
     public NavMeshAgent agent;
     public Transform player;
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask whatIsGround, whatIsPlayer, whatIsWall;
+
 
     //patrolling
     public Vector3 walkPoint;
-    bool walkPointSet;
+    public bool walkPointSet;
     public float walkPointRange;
 
     //Attacking
@@ -28,19 +29,24 @@ public class InitialEnemyAI : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        walkPointSet = false;
     }
 
     private void Patrolling()
     {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
+        if (!walkPointSet)
         {
-            agent.SetDestination(walkPoint);
+
+            SearchWalkPoint();
+
+        }
+        else if (walkPointSet)
+        {
+            agent.SetDestination(new Vector3(walkPoint.x, transform.position.y, walkPoint.z));
         }
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude < 1.5f)
         {
             walkPointSet = false;
         }
@@ -50,13 +56,17 @@ public class InitialEnemyAI : MonoBehaviour
     {
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomx = Random.Range(-walkPointRange, walkPointRange);
+        Debug.Log("looking for walkpoint");
 
         walkPoint = new Vector3(transform.position.x + randomx, transform.position.y, transform.position.z + randomZ);
-
-        if(Physics.Raycast(walkPoint, transform.up, 2f, whatIsGround))
+        //walkPointSet = true;
+        if (Physics.Raycast(walkPoint, -transform.up, 10f, whatIsGround))
         {
+            Debug.DrawRay(transform.position, walkPoint, Color.red);
+            
             walkPointSet = true;
         }
+        
     }
     private void ChasePlayer()
     {

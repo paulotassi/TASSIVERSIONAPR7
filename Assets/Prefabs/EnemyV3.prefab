@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 402797581088281046, guid: ac6df0a914cebc348be885f60621c318, type: 3}
+      propertyPath: sightRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 402797581088281046, guid: ac6df0a914cebc348be885f60621c318, type: 3}
+      propertyPath: attackRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 402797581088281046, guid: ac6df0a914cebc348be885f60621c318, type: 3}
+      propertyPath: walkPointRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 402797581088281046, guid: ac6df0a914cebc348be885f60621c318, type: 3}
+      propertyPath: whatIsWall.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 402797581088281046, guid: ac6df0a914cebc348be885f60621c318, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 829217697425268587, guid: ac6df0a914cebc348be885f60621c318, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.004925
@@ -48,9 +68,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4790081738964328314, guid: ac6df0a914cebc348be885f60621c318, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8094360429717663874, guid: ac6df0a914cebc348be885f60621c318, type: 3}
       propertyPath: m_Name
-      value: EnemyInitial Variant
+      value: EnemyV3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

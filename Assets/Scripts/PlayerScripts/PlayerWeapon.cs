@@ -11,6 +11,8 @@ public class PlayerWeapon : MonoBehaviour
     //Bullet Creation
     private GameObject bullet;
     public Transform playerRotation;
+    public AudioSource asource;
+    public AudioClip aClip;
 
     //Ammo Data
     [SerializeField] BCAmmo ammunition;
@@ -22,20 +24,25 @@ public class PlayerWeapon : MonoBehaviour
     private void Start()
     {
         canShoot = true;
+        asource = GetComponent<AudioSource>();
             
     }
 
     void Update()
     {
+        aClip = ammunition.weaponSound;
+        asource.resource = aClip;
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ammunition = ammos[0]; //rifle shell
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ammunition = ammos[1]; //shotgun round
             new Vector3 (spawn.position.x + Random.Range(-ammunition.sprd, ammunition.sprd), spawn.position.y + Random.Range(-ammunition.sprd, ammunition.sprd), spawn.position.z + Random.Range(-ammunition.sprd, ammunition.sprd));
         }
+        
 
     }
 
@@ -67,6 +74,7 @@ public class PlayerWeapon : MonoBehaviour
         if (canShoot == true)
         {
             StartCoroutine(BulletSpawner());
+            
         }
        
     }
@@ -78,7 +86,12 @@ public class PlayerWeapon : MonoBehaviour
             bullet = Instantiate(prefab, new Vector3(spawn.position.x + Random.Range(-ammunition.sprd, ammunition.sprd), spawn.position.y + Random.Range(-ammunition.sprd, ammunition.sprd), spawn.position.z + Random.Range(-ammunition.sprd, ammunition.sprd)), Quaternion.identity);
             bullet.transform.rotation = playerRotation.transform.rotation;
         }
-
+        
+        asource.Play();
+        
+        
+        
+        
         canShoot = false;
         yield return new WaitForSeconds(ammunition.rcol);
         canShoot = true;

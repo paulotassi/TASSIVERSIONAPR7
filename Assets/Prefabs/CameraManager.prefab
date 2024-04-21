@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd805f67ae8cd8449ccb06580b44b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPosition: {fileID: 0}
+  playerPosition: {fileID: 6973519960270150631, guid: 25f1b2719de9feb40a984311c088741a, type: 3}
   targetCameraPosition: {x: 0, y: 0, z: 0}
-  camZoomAdjust: 10
+  camZoomAdjust: 4
   newCamHeight: 0
 --- !u!1 &5527964941683215218
 GameObject:
