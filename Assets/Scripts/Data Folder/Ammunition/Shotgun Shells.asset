@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6eb89c4b0ab55f4e818c42b20e4fcce, type: 3}
   m_Name: Shotgun Shells
   m_EditorClassIdentifier: 
-  damage: 12
+  damage: 5
   rounds: 8
-  spread: 0.5
-  recoil: 1.2
+  spread: 5
+  recoil: 1
   weaponSFX: {fileID: 8300000, guid: fecc3e7a0166a104cb810435f6fdf37b, type: 3}

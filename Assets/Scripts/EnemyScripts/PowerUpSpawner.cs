@@ -24,7 +24,7 @@ public class PowerUpSpawner : MonoBehaviour
             Instantiate(PowerUpVariety, new Vector3(spawnLocations[randomSpawnLocation].transform.position.x + randomSpawnNum, spawnLocations[randomSpawnLocation].transform.position.y, spawnLocations[randomSpawnLocation].transform.position.z + randomSpawnNum), Quaternion.identity);
             
             ct = 0f;
-            Debug.Log(randomSpawnLocation);
+            //Debug.Log(randomSpawnLocation);
         }
         
     }

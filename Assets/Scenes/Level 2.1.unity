@@ -14796,8 +14796,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4866048621485390873, guid: 25f1b2719de9feb40a984311c088741a, type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866048621485390873, guid: 25f1b2719de9feb40a984311c088741a, type: 3}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866048621485390873, guid: 25f1b2719de9feb40a984311c088741a, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6973519960270150631, guid: 25f1b2719de9feb40a984311c088741a, type: 3}
       propertyPath: m_Name
@@ -58182,7 +58190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2048446497
 Transform:
   m_ObjectHideFlags: 0

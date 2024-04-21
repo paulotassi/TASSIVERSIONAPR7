@@ -107,8 +107,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Height: 3
+  m_Radius: 2.16
+  m_Height: 3.47
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!96 &6229367105435049177
@@ -155,7 +155,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -173,7 +173,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.59039307
         value: 0
         inSlope: 0
         outSlope: 0
@@ -238,8 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b11c82ba1fc9c4faa7d8ec95bc9b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 2
+  bulletSpeed: 15
   ammunition: {fileID: 11400000, guid: 33ade5346e7482743b49fbc4000a1972, type: 2}
+  spreadValue: 0
   ammos:
   - {fileID: 11400000, guid: 33ade5346e7482743b49fbc4000a1972, type: 2}
   - {fileID: 11400000, guid: 4ad911b3083045a4aa391dd680ce01e3, type: 2}

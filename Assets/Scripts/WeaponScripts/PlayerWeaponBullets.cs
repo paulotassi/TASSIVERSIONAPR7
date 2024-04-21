@@ -7,17 +7,25 @@ public class PlayerWeaponBullets : MonoBehaviour
 {
     [SerializeField] public float bulletSpeed = 1f;
     [SerializeField] BCAmmo ammunition;
+    [SerializeField] float spreadValue;
     [SerializeField] private List<BCAmmo> ammos;
 
     private void Start()
     {
         StartCoroutine(SelfDestruct());
+               
+    }
+
+    private void Awake()
+    {
+        spreadValue = GameObject.Find("Weapon").GetComponent<PlayerWeapon>().spreadValue;
     }
 
     private void FixedUpdate()
     {
-        transform.position += transform.forward * bulletSpeed;
-
+        spreadValue = GameObject.Find("Weapon").GetComponent<PlayerWeapon>().spreadValue;
+     
+        transform.position += transform.TransformVector(Random.Range(-spreadValue, spreadValue) , Random.Range(-spreadValue, spreadValue), bulletSpeed) ;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -35,6 +43,7 @@ public class PlayerWeaponBullets : MonoBehaviour
     IEnumerator SelfDestruct()
     {
         yield return new WaitForSeconds(1f);
+        Debug.Log(spreadValue);
         Destroy(gameObject);
     }
 }

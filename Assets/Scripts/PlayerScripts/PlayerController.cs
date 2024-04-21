@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        rb.velocity = Vector3.zero;
         var targetVector = new Vector3(inputHandlerScript.InputVector.x, 0, inputHandlerScript.InputVector.y);
 
         //Move in Direction Aiming
