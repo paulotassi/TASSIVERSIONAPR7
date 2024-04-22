@@ -8,6 +8,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] public Vector3 targetCameraPosition;
     [SerializeField] public float camZoomAdjust = 1f;
     [SerializeField] private float newCamHeight;
+    [SerializeField] private float newCamZ;
 
     private void Start()
     {
@@ -20,15 +21,17 @@ public class CameraManager : MonoBehaviour
         if (camZoomAdjust > 1)
         {
             newCamHeight = transform.position.y + camZoomAdjust;
+            
 
         }
     }
     private void Update()
     {
-        targetCameraPosition = new Vector3(playerPosition.gameObject.transform.position.x - 5, transform.position.y, playerPosition.gameObject.transform.position.z - 5);
+        newCamZ = playerPosition.transform.position.z - 8f - camZoomAdjust;
+        targetCameraPosition = new Vector3(playerPosition.gameObject.transform.position.x , newCamHeight, newCamZ);
 
         //Camera offset on player and chanes position to match but locks the rotation
-        targetCameraPosition = new Vector3((playerPosition.gameObject.transform.position.x - 5) - camZoomAdjust, newCamHeight, (playerPosition.gameObject.transform.position.z - 5) - camZoomAdjust);
+        //targetCameraPosition = new Vector3((playerPosition.gameObject.transform.position.x ) - camZoomAdjust, newCamHeight, (playerPosition.gameObject.transform.position.z) - camZoomAdjust);
         transform.position = targetCameraPosition;
     }
 }
