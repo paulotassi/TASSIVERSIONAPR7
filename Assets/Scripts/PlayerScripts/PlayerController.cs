@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -74,6 +74,11 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<TrailRenderer>().enabled = false;
         }
 
+        if (canDash == false)
+        {
+            dashCDUI.fillAmount += Mathf.Lerp(0, 1, Time.deltaTime / dashCooldown);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             StartCoroutine(Dash());
@@ -143,13 +148,17 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         isDashing = true;
         MoveSpeed = dashSpeed;
+        dashCDUI.fillAmount = 0;
+        
         yield return new WaitForSeconds(dashDuration);
         MoveSpeed = 5f;
         isDashing = false;
+        
 
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+        dashCDUI.fillAmount = 1;
     }
 
     private IEnumerator BullRush()

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   rounds: 8
-  spread: 5
-  recoil: 2.5
+  spread: 3
+  recoil: 5
   weaponSFX: {fileID: 8300000, guid: fecc3e7a0166a104cb810435f6fdf37b, type: 3}

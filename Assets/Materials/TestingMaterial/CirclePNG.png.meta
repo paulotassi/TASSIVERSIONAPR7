@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7f1e0a998ea13d4bbcd5f847de42ed7
+guid: 23f2b8c8cdf260e44a9e98498b5481dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -136,22 +136,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Square_0
+      name: CirclePNG_0
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 616
-        height: 616
+        x: 12
+        y: 12
+        width: 72
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a3166727c37f9f478c3d0545377b85f
-      internalID: 1073781363
+      spriteID: 06866e0c86c6ab943bc80307b6dcfb6a
+      internalID: 1706839668
       vertices: []
       indices: 
       edges: []
@@ -159,7 +159,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 48f27d2a4d677504494d8cfe3c8c54f7
+    spriteID: 2b2feacd012209d4f9c7fed2bc9b02be
     internalID: 0
     vertices: []
     indices: 
@@ -167,7 +167,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Square_0: 1073781363
+      CirclePNG_0: 1706839668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

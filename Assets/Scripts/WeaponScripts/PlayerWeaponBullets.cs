@@ -9,6 +9,7 @@ public class PlayerWeaponBullets : MonoBehaviour
     [SerializeField] BCAmmo ammunition;
     [SerializeField] float intialSpreadValue;
     [SerializeField] float currentSpreadAmount;
+
     [SerializeField] private List<BCAmmo> ammos;
 
     private void Start()
@@ -21,14 +22,15 @@ public class PlayerWeaponBullets : MonoBehaviour
     {
         intialSpreadValue = GameObject.Find("Weapon").GetComponent<PlayerWeapon>().spreadValue;
         currentSpreadAmount = Random.Range(-intialSpreadValue, intialSpreadValue);
+ 
         
     }
 
     private void FixedUpdate()
     {
-        intialSpreadValue = GameObject.Find("Weapon").GetComponent<PlayerWeapon>().spreadValue;
+        //intialSpreadValue = GameObject.Find("Weapon").GetComponent<PlayerWeapon>().spreadValue;
      
-        transform.position += transform.TransformVector(currentSpreadAmount , currentSpreadAmount, bulletSpeed) ;
+        transform.position += transform.TransformVector(currentSpreadAmount , 0, bulletSpeed) ;
     }
 
     public void OnTriggerEnter(Collider other)
