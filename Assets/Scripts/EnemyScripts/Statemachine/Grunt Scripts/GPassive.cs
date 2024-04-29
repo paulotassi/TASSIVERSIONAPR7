@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class GPassive : EnemyStateBase
@@ -42,13 +44,14 @@ public class GPassive : EnemyStateBase
     private void Update()
     {
         position = transform.position;
-        speed = 1f * Time.deltaTime;
+        speed = 2f * Time.deltaTime;
         walking(speed);
+        search();
     }
 
     private void search()
     {
-       Collider[] hitcolliders = Physics.OverlapSphere(position, 1);
+       Collider[] hitcolliders = Physics.OverlapSphere(position, 10);
         foreach (Collider collider in hitcolliders)
         {
             if (collider.GetComponent<PlayerController>() != null)
@@ -77,6 +80,6 @@ public class GPassive : EnemyStateBase
     public override void OnDeactivate()
     {
         Debug.Log("Grunt is no longer passive");
-
+        Array.Clear(patrolPointslocations, 0, patrolPointslocations.Length);
     }
 }
