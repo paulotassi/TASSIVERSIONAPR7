@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class InitialEnemyAI : MonoBehaviour
+public class BossAI : MonoBehaviour
 {
 
     public NavMeshAgent agent;
@@ -21,7 +21,8 @@ public class InitialEnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
-    
+    public GameObject bossProjectile;
+
 
     //States
     public float sightRange, attackRange;
@@ -33,7 +34,7 @@ public class InitialEnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         walkPointSet = false;
         enemyAnimator = GetComponent<Animator>();
-        
+
     }
 
     private void Patrolling()
@@ -67,10 +68,10 @@ public class InitialEnemyAI : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 10f, whatIsGround))
         {
             Debug.DrawRay(transform.position, walkPoint, Color.red);
-            
+
             walkPointSet = true;
         }
-        
+
     }
     private void ChasePlayer()
     {
@@ -84,9 +85,14 @@ public class InitialEnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+            var attackSelection = Random.Range(1, 3);
             //Attack Code Here Shooting or anything else
-            enemyAnimator.SetTrigger("isAttacking");
-            
+            if (attackSelection == 1) { 
+                enemyAnimator.SetTrigger("isAttacking"); 
+            } else if (attackSelection == 2) {
+                enemyAnimator.SetTrigger("isStomping");
+                    }
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -97,6 +103,13 @@ public class InitialEnemyAI : MonoBehaviour
         Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
         rb.AddForce(transform.up * 2f, ForceMode.Impulse);
+    }
+
+    public void BossProjectileSpawn()
+    {
+        Rigidbody rb = Instantiate(bossProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        //rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
+        //rb.AddForce(transform.up * 2f, ForceMode.Impulse);
     }
     private void ResetAttack()
     {
@@ -111,7 +124,7 @@ public class InitialEnemyAI : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if(!playerInSightRange && !playerInAttackRange) Patrolling();
+        if (!playerInSightRange && !playerInAttackRange) Patrolling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
     }

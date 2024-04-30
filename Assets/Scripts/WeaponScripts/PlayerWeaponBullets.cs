@@ -22,8 +22,6 @@ public class PlayerWeaponBullets : MonoBehaviour
     {
         intialSpreadValue = GameObject.Find("Weapon").GetComponent<PlayerWeapon>().spreadValue;
         currentSpreadAmount = Random.Range(-intialSpreadValue, intialSpreadValue);
- 
-        
     }
 
     private void FixedUpdate()
@@ -42,6 +40,21 @@ public class PlayerWeaponBullets : MonoBehaviour
             other.gameObject.GetComponent<Health>().takeDamage(ammunition.dmg);
             Destroy(gameObject);
             
+        }
+        if (other.gameObject.tag == "Boss")
+        {
+            if (other.gameObject.GetComponent<BossHealth>().shieldStatus == true)
+            {
+                Debug.Log("hit a shield");
+                Destroy(gameObject);
+            }
+            else if (other.gameObject.GetComponent<BossHealth>().shieldStatus == false)
+            {
+                Debug.Log("I hit Something");
+                other.gameObject.GetComponent<BossHealth>().takeDamage(ammunition.dmg);
+                Destroy(gameObject);
+            }
+
         }
     }
 

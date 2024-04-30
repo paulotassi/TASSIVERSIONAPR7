@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class groundPoundAttack : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public Transform firePoint;
     public float projectileSpeed = 10f;
-
+    public UnityEvent shieldBust;
     public float seconds = 5;
     public float delay;
+    public string tagThatTriggers = "Boss";
 
     void Update()
     {
@@ -28,7 +30,14 @@ public class groundPoundAttack : MonoBehaviour
 
     }
 
-    void groundPound()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == tagThatTriggers)
+        {
+            shieldBust.Invoke();
+        }
+    }
+    public void groundPound()
     {
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
