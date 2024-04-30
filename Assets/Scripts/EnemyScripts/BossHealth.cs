@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class Health : MonoBehaviour
+public class BossHealth : MonoBehaviour
 {
     // Start is called before the first frame update
     public int maxHealth = 5;
     public int currentHealth;
+    public bool shieldStatus = true;
+    public GameObject shieldMesh;
     public GameManager manager;
 
     private void Awake()
     {
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        shieldStatus = true;
+        shieldMesh.SetActive(true);
     }
     void Start()
     {
@@ -21,12 +25,18 @@ public class Health : MonoBehaviour
         manager.AddEnemy();
         // tell gm add enemy
     }
+
+    public void BreakShield()
+    {
+        shieldStatus = false;
+        shieldMesh.SetActive(false);
+    }
     public void takeDamage(int amount)
     {
         currentHealth -= amount;
 
         if (currentHealth <= 0) {
-            Debug.Log("DEAD Thing");
+            Debug.Log("DEAD Boss");
             manager.killCount++;
             manager.RemoveEnemy();
             Destroy(gameObject);
