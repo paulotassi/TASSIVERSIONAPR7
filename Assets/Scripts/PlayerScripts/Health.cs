@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
 
     public void Update()
     {
-        if ( player.currentHealth ==0)
+        if ( player.currentHealth <=0)
         {
             manager.DeathScene();
         }
