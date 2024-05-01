@@ -18,23 +18,31 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        manager.AddEnemy();
         // tell gm add enemy
+    }
+
+    public void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            Death();
+            //Play Dead Animation
+            //Set isDead = true;
+            //Lock Player control
+            //Activate Respawn or Return to Title Canvas
+        }
     }
     public void takeDamage(int amount)
     {
         currentHealth -= amount;
 
-        if (currentHealth <= 0) {
-            Debug.Log("DEAD Thing");
+    }
+
+    public void Death()
+    {
             manager.killCount++;
             manager.RemoveEnemy();
             Destroy(gameObject);
-        //Play Dead Animation
-        //Set isDead = true;
-        //Lock Player control
-        //Activate Respawn or Return to Title Canvas
-        }
     }
 
 }

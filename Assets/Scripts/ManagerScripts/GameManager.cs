@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int killCount;
     [SerializeField] public TMP_Text scoreText;
     [SerializeField] public TMP_Text waveText;
-
     [SerializeField] public int enemiesAlive = 0;
 
     private void Awake()
@@ -43,24 +42,44 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemiesAlive < 0)
+        {
+            enemiesAlive = 0;
+        }
+        if ( enemiesAlive == 0)
+        {
+            IncreaseWaveNumber();
+        }
         scoreText.text = "Bounties: " + killCount;
         waveText.text = "Wave: " + waveNum;
-        if (enemiesAlive - 1 == 0)
+      
+        if (enemiesAlive == 0)
         {
-            waveNum++;
+             if (enemiesAlive == 0 && waveNum % 2 == 0)
+            {
+                spawner.SpawnBoss();
+            }
+
             spawner.SpawnEnemies();
+           
         }
-  
+
     }
     public void AddEnemy()
     {
         enemiesAlive++;
+        Debug.Log("current amount alive " + (enemiesAlive));
         //Debug.Log("Enemies" + (enemiesAlive - 1));
     }
     public void RemoveEnemy()
     {
         enemiesAlive--;
+        Debug.Log("current amount alive " + (enemiesAlive));
         //Debug.Log("Enemies" + enemiesAlive);
     }
 
+    public void IncreaseWaveNumber()
+    {
+        waveNum++;
+    }
 }

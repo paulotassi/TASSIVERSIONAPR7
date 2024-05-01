@@ -36,7 +36,7 @@ public class PlayerWeaponBullets : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("I hit Something");
+            //Debug.Log("I hit Something");
             other.gameObject.GetComponent<Health>().takeDamage(ammunition.dmg);
             Destroy(gameObject);
             
@@ -45,12 +45,12 @@ public class PlayerWeaponBullets : MonoBehaviour
         {
             if (other.gameObject.GetComponent<BossHealth>().shieldStatus == true)
             {
-                Debug.Log("hit a shield");
+                //Debug.Log("hit a shield");
                 Destroy(gameObject);
             }
             else if (other.gameObject.GetComponent<BossHealth>().shieldStatus == false)
             {
-                Debug.Log("I hit Something");
+                //Debug.Log("I hit Something");
                 other.gameObject.GetComponent<BossHealth>().takeDamage(ammunition.dmg);
                 Destroy(gameObject);
             }

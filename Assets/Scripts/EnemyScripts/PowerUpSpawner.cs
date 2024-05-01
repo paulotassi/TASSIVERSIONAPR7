@@ -14,6 +14,7 @@ public class PowerUpSpawner : MonoBehaviour
     [SerializeField] public int waveNumDesignation = 1;
     [SerializeField] public GameManager manager;
     public GameObject PowerUpVariety;
+    public GameObject BossPrefab;
     public Transform[] spawnLocations;
     // Update is called once per frame
 
@@ -33,12 +34,24 @@ public class PowerUpSpawner : MonoBehaviour
         ct += Time.deltaTime;
        
     }
+    public void SpawnBoss()
+    {
+        waveNumDesignation = (manager.waveNum);
+        randomSpawnNum = Random.Range(4, 5);
+        
+        for (int i = 0; i < waveNumDesignation; i++)
+        {
+            randomSpawnLocation = Random.Range(0, 4);
+            Instantiate(BossPrefab, new Vector3(spawnLocations[randomSpawnLocation].transform.position.x + randomSpawnNum, spawnLocations[randomSpawnLocation].transform.position.y, spawnLocations[randomSpawnLocation].transform.position.z + randomSpawnNum), Quaternion.identity);
+        }
+    }
     public void SpawnEnemies()
     {
-         waveNumDesignation = (manager.waveNum*5);
+        waveNumDesignation = (manager.waveNum*5);
         randomSpawnNum = Random.Range(4, 5);
         for (int i = 0; i < waveNumDesignation; i++)
         {
+            manager.AddEnemy();
             randomSpawnLocation = Random.Range(0, 4);
             Instantiate(PowerUpVariety, new Vector3(spawnLocations[randomSpawnLocation].transform.position.x + randomSpawnNum, spawnLocations[randomSpawnLocation].transform.position.y, spawnLocations[randomSpawnLocation].transform.position.z + randomSpawnNum), Quaternion.identity);
         }

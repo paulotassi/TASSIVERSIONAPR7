@@ -22305,6 +22305,7 @@ MonoBehaviour:
   waveNumDesignation: 1
   manager: {fileID: 0}
   PowerUpVariety: {fileID: 4470880514071155272, guid: 647961ec0763c6846bc256963a81940d, type: 3}
+  BossPrefab: {fileID: 4470880514071155272, guid: b4b67bd0deaba7b41a15d63a42743aa7, type: 3}
   spawnLocations:
   - {fileID: 1834747055}
   - {fileID: 1916439593}
