@@ -10,10 +10,13 @@ public class Health : MonoBehaviour
     public int maxHealth = 5;
     public int currentHealth;
     public GameManager manager;
+    public Health player;
 
     private void Awake()
     {
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        player = GameObject.Find("Player").GetComponent<Health>();
+
     }
     void Start()
     {
@@ -23,6 +26,10 @@ public class Health : MonoBehaviour
 
     public void Update()
     {
+        if ( player.currentHealth ==0)
+        {
+            manager.DeathScene();
+        }
         if (currentHealth <= 0)
         {
             Death();

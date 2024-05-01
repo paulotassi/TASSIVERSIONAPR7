@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6eb89c4b0ab55f4e818c42b20e4fcce, type: 3}
   m_Name: Rifled Rounds
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 25
   rounds: 1
   spread: 0
-  recoil: 0.8
+  recoil: 0.3
   weaponSFX: {fileID: 8300000, guid: 80fb034c8a4b7fb4b9fe87b5eac8784f, type: 3}
