@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadSceneByName(string sceneName)
+    public void LoadSceneByName()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("Level 2.1");
     }
 }
