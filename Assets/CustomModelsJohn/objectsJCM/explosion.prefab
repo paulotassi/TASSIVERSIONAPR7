@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 531232549290472326}
   - component: {fileID: 6580225466276980469}
   - component: {fileID: 536890758042934068}
+  - component: {fileID: -4904723941405635533}
   m_Layer: 0
   m_Name: explosion
   m_TagString: Untagged
@@ -4922,7 +4923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1b7f4de5961c242b7280b000fc0cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleFactor2: 8
+  scaleFactor2: 12
 --- !u!114 &536890758042934068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4935,4 +4936,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc664f492d607f40adc31f3780c492f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfDestructTime: 1
+  selfDestructTime: 2
+--- !u!114 &-4904723941405635533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867895941905698886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae74dc8277b44f4ebda9e98e57b40b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammunition: {fileID: 11400000, guid: 303cb113af4554d48be6b04c00cde919, type: 2}
+  ammos:
+  - {fileID: 11400000, guid: 303cb113af4554d48be6b04c00cde919, type: 2}
